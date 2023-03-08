@@ -1,0 +1,204 @@
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/favicon.ico">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/dashboard/">
+
+    <title>加班工时统计</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/examples/dashboard/dashboard.css" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      .top15{
+        margin-top:15px;
+      }
+      .thead_t{
+          font-size: 16px;
+          background-color: lightskyblue;
+      }
+      .tr_left{
+    font-size: 15px;
+    font-weight: bold;
+    background-color: bisque;
+      }
+      .tr_right{
+    text-align: right;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: bisque;
+      }
+      .my_img{
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-top: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+<!--          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="navbar">-->
+<!--            <span class="icon-bar"></span>-->
+<!--            <span class="icon-bar"></span>-->
+<!--            <span class="icon-bar"></span>-->
+<!--          </button>-->
+            <img class="my_img" src="{{ url_for('static', filename='python4.jpeg')}}">
+          <a class="navbar-brand" href="#">加班工时统计</a>
+        </div>
+<!--        <div id="navbar" class="navbar-collapse collapse">-->
+<!--          <ul class="nav navbar-nav navbar-right">-->
+<!--            <li><a href="#">Dashboard</a></li>-->
+<!--            <li><a href="#">Settings</a></li>-->
+<!--            <li><a href="#">Profile</a></li>-->
+<!--            <li><a href="#">Help</a></li>-->
+<!--          </ul>-->
+<!--          <form class="navbar-form navbar-right">-->
+<!--            <input type="text" class="form-control" placeholder="Search...">-->
+<!--          </form>-->
+<!--        </div>-->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<!--          <h1 class="page-header">Dashboard</h1>-->
+
+<!--          <div class="row placeholders">-->
+<!--            <div class="col-xs-6 col-sm-3 placeholder">-->
+<!--              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">-->
+<!--              <h4>Label</h4>-->
+<!--              <span class="text-muted">Something else</span>-->
+<!--            </div>-->
+<!--            <div class="col-xs-6 col-sm-3 placeholder">-->
+<!--              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">-->
+<!--              <h4>Label</h4>-->
+<!--              <span class="text-muted">Something else</span>-->
+<!--            </div>-->
+<!--            <div class="col-xs-6 col-sm-3 placeholder">-->
+<!--              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">-->
+<!--              <h4>Label</h4>-->
+<!--              <span class="text-muted">Something else</span>-->
+<!--            </div>-->
+<!--            <div class="col-xs-6 col-sm-3 placeholder">-->
+<!--              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">-->
+<!--              <h4>Label</h4>-->
+<!--              <span class="text-muted">Something else</span>-->
+<!--            </div>-->
+<!--          </div>-->
+          <form class="form-signin">
+<!--        <h2 class="form-signin-heading">Please sign in</h2>-->
+        <label for="inputEmail" class="sr-only">工号</label>
+        <input id="inputEmail" name="username" class="form-control" placeholder="工号" required autofocus>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" name="password" id="inputPassword" class="form-control top15" placeholder="密码" required>
+        <button class="btn btn-lg btn-primary btn-block top15" id="search" type="button">查询</button>
+      </form>
+          <div class="table-responsive top15">
+            <table class="table table-striped">
+              <thead class="thead_t">
+                <tr>
+                  <th>日期</th>
+                  <th>上班卡</th>
+                  <th>下班卡</th>
+                  <th>加班(分)</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.24/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      $(document).ready(function (){
+        $('#search').click(function (){
+          var  username = $('input[name=username]').val()
+          var  password = $('input[name=password]').val()
+          if(!username || !password){
+              alert("请输入工号密码")
+            return false;
+          }
+          data_j = JSON.stringify({"username":username,"password":password})
+          $.ajax({
+             type: "POST",
+             url: "/getTime",
+             data: data_j,
+             dataType: "json",
+              contentType: 'application/json;charset=UTF-8',
+             success: function(data){
+                 if(data.errno == '0'){
+                     var totalAdd = data.totalAdd
+                     var percent = data.percent
+                     var data = data.data
+                     var template = "<tr><td>DT</td><td>IN</td><td>OUT</td><td>ADDMINU</td></tr>"
+                     var template_red = "<tr style='background-color: #bd362f'><td>DT</td><td>IN</td><td>OUT</td><td>ADDMINU</td></tr>"
+                     var total = "<tr><td colspan=\"2\" class='tr_left'>TOTAL</td> <td colspan=\"2\" class='tr_right'>PERCENT</td><tr>"
+                     var html = total.replace('TOTAL','加班总时长：'+totalAdd).replace('PERCENT','平均工时：'+percent)
+                     for(var i = 0;i<data.length;i++){
+                         if(data[i].dt!==undefined){
+                             if(data[i].red !== undefined && true == data[i].red){
+                                 html+=template_red.replace('DT',data[i].dt).replace('IN',data[i].in).replace('OUT', data[i].out).replace('ADDMINU',data[i].addMinute===undefined?'':data[i].addMinute)
+                             }else{
+                                 html+=template.replace('DT',data[i].dt).replace('IN',data[i].in).replace('OUT', data[i].out).replace('ADDMINU',data[i].addMinute===undefined?'':data[i].addMinute)
+                             }
+
+                         }
+                     }
+                     $('tbody').html(html)
+                 }else{
+                     alert(data.errmsg)
+                 }
+
+             }
+         });
+          return false;
+
+        })
+
+
+      })
+
+    </script>
+
+  </body>
+</html>
